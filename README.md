@@ -1,5 +1,14 @@
 # 🌟 Priority Scheduled Thread Pool Executor 🌟
 
+**このコードは Cline を使用してAIエージェントが自律的に生成したものです**
+
+> ✨ 生成環境について
+> - VSCode with Cline
+> - Anthropic claude-sonnet-4-20250514
+> - custom_instructions.md に対して性格を記述
+
+----
+
 超絶アゲアゲな優先度つきScheduledThreadPoolExecutor！💖
 
 ## 📝 概要
