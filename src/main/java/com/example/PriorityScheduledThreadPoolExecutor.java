@@ -106,12 +106,15 @@ public class PriorityScheduledThreadPoolExecutor extends ThreadPoolExecutor impl
      * キューから優先度順にタスクを取り出して実行しちゃうの！
      * 
      * この子が優先度制御の心臓部分だよっ💖
+     * 一度に1つのタスクだけ処理して、スレッドプールを効率的に使うよ〜✨
      */
     private void processNextTask() {
-        PriorityTask task;
-        // キューが空になるまでタスクを処理し続けるよ〜
-        while ((task = priorityQueue.poll()) != null) {
+        PriorityTask task = priorityQueue.poll();
+        if (task != null) {
             this.execute(task);
+            if (!priorityQueue.isEmpty()) {
+                submit(this::processNextTask);
+            }
         }
     }
     
